@@ -7,4 +7,4 @@ CREATE TABLE `user` (
   `username` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`)
-  ) ENGINE = InnoDB DEFAULT CHARSET=utf8
+  )ENGINE = InnoDB DEFAULT CHARSET=utf8
