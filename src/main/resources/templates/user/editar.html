@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+	<title>Cadastro de Usuário</title>
+	
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+<form method="POST" th:object="${usuario}" th:each="user : ${usuario}">
+	<label for="nome">Nome</label>
+	<input type="text" id="nome" th:field="*{nome}" th:value="${user.nome}" />
+	
+	<label for="documento">CPF / RG</label>
+	<input type="text" id="documento" th:field="*{documento}"  th:value="${user.documento}"/>
+	
+	<label for="dataNasc">Data Nascimento</label>
+	<input type="date" id="dataNascimento" th:field="*{dataNascimento}" th:value="${user.dataNascimento}" />
+	 
+	<label for="cartaoMilhas">Cartao Milhas</label>
+	<input type="text" id="cartaoMilhas" th:field="*{cartaoMilhas}"  th:value="${user.cartaoMilhas}" />
+
+	<label for="username">Login</label>
+	<input type="text" id="username" th:field="*{username}" th:value="${user.username}" />
+	
+	<label for="password">Senha</label>
+	<input type="password" id="password" th:field="*{senha}" />
+
+	<input type="submit" value="Cadastrar Usuário" />
+</form>
+
+</body>
+</html>
