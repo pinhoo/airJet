@@ -1,6 +1,34 @@
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
 CREATE TABLE `aircraft` (
   `id` BIGINT AUTO_INCREMENT,
   `modelo` VARCHAR(45) NOT NULL,
   `num_assentos` INT NOT NULL,
-  PRIMARY KEY (`id`)
-  )ENGINE = InnoDB DEFAULT CHARSET=utf8
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+CREATE TABLE `flights` (
+  `id` BIGINT AUTO_INCREMENT,
+  `origem` VARCHAR(45) NOT NULL,
+  `destino` VARCHAR(45) NOT NULL,
+  `hora_partida` DATETIME NOT NULL,
+  `duracao` TIME NOT NULL,
+  `distancia` DECIMAL NOT NULL,
+  `preco_passagem` DECIMAL(10,2) NOT NULL,
+  `volta` MEDIUMTEXT NOT NULL,
+  `aircraft_id` BIGINT NOT NULL,
+  `assentos_ocupados` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_flights_aircraft1_idx` (`aircraft_id` ASC),
+  CONSTRAINT `fk_flights_aircraft1`
+    FOREIGN KEY (`aircraft_id`)
+    REFERENCES `unipejet`.`aircraft` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
