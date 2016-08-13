@@ -2,7 +2,9 @@ package br.pos.unipe.unipeJet.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.pos.unipe.unipeJet.model.Voo;
@@ -24,5 +26,12 @@ public class VoosController {
 		ModelAndView mv = new ModelAndView("/voo/novo");
 		mv.addObject("avioes", aeronaves.findAll());
 		return mv;
+	}
+	
+	@RequestMapping(value ="/novo",method = RequestMethod.POST)
+	public ModelAndView salvar(Voo voo){
+		voos.save(voo);
+		
+		return new ModelAndView("redirect:/voos/novo");
 	}
 }

@@ -17,11 +17,51 @@
 		</div>
 	</div>
 	<div class="container-fluid">
-		<form method="POST">
-		
-	    	<select class="form-control">
+		<form method="POST" th:object = "${voo}">
+			<div class="form-group col-sm-6">
+				<label for="destino">Origem</label>
+				<input class="form-control" type="text" id="origem" th:field="*{origem}" />
+			</div>
+			
+			<div class="form-group col-sm-6">
+				<label for="Destino">Destino</label>
+				<input class="form-control" type="text" id="destino" th:field="*{destino}" />
+			</div>
+			
+			<div class="form-group col-sm-6">
+				<label for="horaPartida">Hora Partida</label>
+				<input class="form-control" type="text" id="horaPartida" th:field="*{horaPartida}"  />
+			</div>
+			
+			<label for="duracao">Duração</label>
+			<input type="text" id="duracao" th:field="*{duracao}"  />
+			
+			 <div class="form-group col-sm-6">
+				<label for="distancia">Distância</label>
+				<input class="form-control" type="text" id="distancia" th:field="*{distancia}" />
+			</div>
+			
+			<div class="form-group col-sm-6">
+				<label for="precoPassagem">Preço Passagem</label>
+				<input class="form-control" type="text" id="precoPassagem" th:field="*{precoPassagem}" />
+			</div>
+			
+			<div class="form-group col-sm-6">
+				<label for="volta">Volta</label>
+				<input class="form-control" type="text" id="volta" th:field="*{volta}" />
+			</div>
+			
+			<div class="form-group col-sm-6">
+				<label for="assentosOcupados">Assentos Ocupados</label>
+				<input class="form-control" type="text" id="assentosOcupados" th:field="*{assentosOcupados}" />
+			</div>
+			
+	    	<select th:field="*{aeronave}" class="form-control" >
+	    		
      			<option th:each="aircraft: ${avioes}" th:value="${aircraft.id}" th:text="${aircraft.modelo}"></option>
     		</select>
+    		
+    		<input type="submit" class="btn btn-primary" value="Cadastrar"/>
 		</form>
 	</div>
 </section>

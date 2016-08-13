@@ -1,5 +1,9 @@
 package br.pos.unipe.unipeJet.controller;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +30,7 @@ public class UsuariosController {
 	}
 	
 	@RequestMapping(value = "/novo", method = RequestMethod.POST)
-	public ModelAndView salvar(Usuario usuario){
+	public ModelAndView salvar(Usuario usuario) throws ParseException{
 		usuarioService.salvar(usuario);
 		return new ModelAndView("redirect:/usuario/novo");
 	}

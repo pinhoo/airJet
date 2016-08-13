@@ -1,5 +1,11 @@
 package br.pos.unipe.unipeJet.model;
 
+
+
+
+
+
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -7,8 +13,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "user")
@@ -25,6 +35,7 @@ public class Usuario {
 	private String documento;
 	
 	@NotNull
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 	
 	private String cartaoMilhas;
