@@ -1,8 +1,6 @@
 package br.pos.unipe.unipeJet.controller;
 
-import java.sql.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,14 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.pos.unipe.unipeJet.model.UserPermission;
 import br.pos.unipe.unipeJet.model.Usuario;
+import br.pos.unipe.unipeJet.repository.UsersPermissions;
 import br.pos.unipe.unipeJet.repository.Usuarios;
 import br.pos.unipe.unipeJet.service.UsuarioService;
 
 @Controller
 @RequestMapping("/usuario")
 public class UsuariosController {
-	
+		
 	@Autowired
 	private Usuarios usuarios;
 	@Autowired
@@ -30,7 +30,8 @@ public class UsuariosController {
 	}
 	
 	@RequestMapping(value = "/novo", method = RequestMethod.POST)
-	public ModelAndView salvar(Usuario usuario) throws ParseException{
+	public ModelAndView salvar(Usuario usuario){
+		usuario.getId();
 		usuarioService.salvar(usuario);
 		return new ModelAndView("redirect:/usuario/novo");
 	}

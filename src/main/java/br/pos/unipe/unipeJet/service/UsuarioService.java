@@ -1,6 +1,5 @@
 package br.pos.unipe.unipeJet.service;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -18,7 +17,7 @@ public class UsuarioService {
 	
 	public void salvar(Usuario usuario){
 		//Gerando o cartão de milhas
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyddMMHHmmssSSS");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyddMMHHmm");
 		Date data = new Date();
 		String convertDate = dateFormat.format(data);
 		usuario.setCartaoMilhas(convertDate);
@@ -32,6 +31,7 @@ public class UsuarioService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
+
 		this.usuarios.save(usuario);
 	}
 	
