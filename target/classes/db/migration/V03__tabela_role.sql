@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `user_roles` (
   INDEX `fk_roles_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_roles_user1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `unipejet`.`user` (`id`)
+    REFERENCES `unipejet`.`user` (`id_user`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

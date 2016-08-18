@@ -22,12 +22,14 @@
 	<![endif]-->
 </head>
 <body>
-
 <div class="aw-layout-page">
 	
 	<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
 	  <div class="container-fluid">
-
+		 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
 	    <div class="navbar-header">
 	      <a class="navbar-brand  hidden-xs" href="#">
 	        <img alt="AlgaWorks" th:src="@{/layout/images/logo.png}"/>
