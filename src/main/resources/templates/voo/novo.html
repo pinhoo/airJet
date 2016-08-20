@@ -56,10 +56,14 @@
 				<input class="form-control" type="text" id="assentosOcupados" th:field="*{assentosOcupados}" />
 			</div>
 			
-	    	<select th:field="*{aeronave}" class="form-control" >
+	    	<select th:field="*{aeronaves}" class="form-control" >
 	    		
      			<option th:each="aircraft: ${avioes}" th:value="${aircraft.id}" th:text="${aircraft.modelo}"></option>
     		</select>
+    		
+    		<input type="hidden" 
+           th:name="${_csrf.parameterName}" 
+           th:value="${_csrf.token}" />
     		
     		<input type="submit" class="btn btn-primary" value="Cadastrar"/>
 		</form>

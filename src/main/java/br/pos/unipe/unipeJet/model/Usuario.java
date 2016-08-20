@@ -1,21 +1,12 @@
 package br.pos.unipe.unipeJet.model;
 
-
-
-
-
-
-
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -25,11 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "user")
 public class Usuario {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_user")
-	private Long id;
-	
+
 	@NotNull
 	private String nome;
 	
@@ -42,20 +29,52 @@ public class Usuario {
 	
 	private String cartaoMilhas;
 	
+	@Id
 	@NotNull
 	private String username;
 	
 	@NotNull
 	@Min(6)
+	@Column(name = "password")
 	private String senha;
+	
+	@OneToOne(mappedBy = "usuario")
+	private Pedido pedido;
+	
+	
+	public Usuario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 
-	public Long getId() {
-		return id;
+	public Usuario(String nome, String documento, Date dataNascimento, String cartaoMilhas, String username,
+			String senha) {
+		super();
+		this.nome = nome;
+		this.documento = documento;
+		this.dataNascimento = dataNascimento;
+		this.cartaoMilhas = cartaoMilhas;
+		this.username = username;
+		this.senha = senha;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+
+
+	public Usuario(String nome, String documento, Date dataNascimento, String cartaoMilhas, String username,
+			String senha, Voo voo) {
+		super();
+
+		this.nome = nome;
+		this.documento = documento;
+		this.dataNascimento = dataNascimento;
+		this.cartaoMilhas = cartaoMilhas;
+		this.username = username;
+		this.senha = senha;
 	}
+
+
 
 	public String getNome() {
 		return nome;
@@ -104,31 +123,17 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Usuario other = (Usuario) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
 	
 	
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
 }

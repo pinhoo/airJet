@@ -19,8 +19,8 @@
 </head>
 <body>
 
-<tr th:each="usuario : ${dados}">
-						<td th:text="${usuario.id}"></td>
+ <tr th:each="usuario : ${dados}">
+						<td th:text="${usuario.username}"></td>
 						<td th:text="${usuario.nome}"><a href="#"></a></td>
 						<td th:text="${usuario.documento}"></td>
 						<td th:text="${usuario.dataNascimento}"></td>

@@ -34,8 +34,4 @@ public class UsuarioService {
 
 		this.usuarios.save(usuario);
 	}
-	
-	public void find(Long id){
-		this.usuarios.findOne(id);
-	}
 }

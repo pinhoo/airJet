@@ -3,15 +3,17 @@ package br.pos.unipe.unipeJet.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 @Table(name="flights")
@@ -19,6 +21,7 @@ public class Voo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_flight")
 	private Long id;
 	
 	private String origem;
@@ -32,9 +35,10 @@ public class Voo {
 	private BigDecimal precoPassagem;
 	private int assentosOcupados;
 	private String volta;
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "aircraft_id")
-	private Aeronave aeronave;
+	private Aeronave aeronaves;
+	
 	
 	public Voo() {
 		super();
@@ -67,7 +71,6 @@ public class Voo {
 		this.precoPassagem = precoPassagem;
 		this.assentosOcupados = assentosOcupados;
 		this.volta = volta;
-		this.aeronave = aeronave;
 	}
 
 	public Long getId() {
@@ -142,14 +145,14 @@ public class Voo {
 		this.volta = volta;
 	}
 
-	public Aeronave getAeronave() {
-		return aeronave;
+	public Aeronave getAeronaves() {
+		return aeronaves;
 	}
 
-	public void setAeronave(Aeronave aeronave) {
-		this.aeronave = aeronave;
+	public void setAeronaves(Aeronave aeronaves) {
+		this.aeronaves = aeronaves;
 	}
-	
+
 	
 	
 	

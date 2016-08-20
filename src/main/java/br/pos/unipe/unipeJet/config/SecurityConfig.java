@@ -33,7 +33,7 @@ public class SecurityConfig {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     	auth.jdbcAuthentication().dataSource(dataSource)
-		.usersByUsernameQuery("select username,senha, enabled from user where username=?")
-		.authoritiesByUsernameQuery("select r.user_id, r.role from unipejet.user_roles as r inner join unipejet.user as u on u.id = r.user_id where u.username=? ");
+		.usersByUsernameQuery("select username,password, enabled from user where username=?")
+		.authoritiesByUsernameQuery("select user_username, role from roles where user_username=?");
     }
 }

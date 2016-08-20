@@ -29,6 +29,10 @@
 				<input class="form-control" type="text" id="documento" th:field="*{numAssentos}" />
 			</div>
 			
+			<input type="hidden" 
+           th:name="${_csrf.parameterName}" 
+           th:value="${_csrf.token}" />
+			
 			<input class="btn btn-primary" type="submit" value="Cadastrar Aeronave" />
 		</form>
 	</div>
