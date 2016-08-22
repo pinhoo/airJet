@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-	<title>Spring e Layout Atacama</title>
+	<title>UnipeJet</title>
 
 	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/vendors.min.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/algaworks.min.css}"/>
@@ -26,15 +26,10 @@
 	
 	<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
 	  <div class="container-fluid">
-		 <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
 	    <div class="navbar-header">
 	      <a class="navbar-brand  hidden-xs" href="#">
-	        <img alt="AlgaWorks" th:src="@{/layout/images/logo.png}"/>
+	        UNIPEJET
 	      </a>
-
 	      <ul class="nav  navbar-nav">
 	        <li>
 	          <a href="#" class="js-sidebar-toggle"><i class="fa  fa-bars"></i></a>
@@ -42,47 +37,13 @@
 	      </ul>
 	    </div>
 
-	    <ul class="nav navbar-nav  navbar-right">
+	    <div class="nav navbar-nav  navbar-right">
 	    
-	      <li>
-	        <a href="#" class="js-search-modal-trigger-show"><i class="fa  fa-search"></i></a>
-	      </li>
+	    	<form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
 	      
-	      <li class="dropdown">
-	        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-	          <i class="fa  fa-envelope"></i> <span class="label  label-danger  aw-label-corner">48</span>
-	        </a>
-	                  
-	        <ul class="dropdown-menu">
-	          <li><a href="javascript:;">Item 1</a></li>
-	          <li><a href="javascript:;">Item 2</a></li>
-	        </ul>
-	      </li>
-	      
-	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-	          <i class="fa  fa-user"></i>
-	        </a>
-	        
-	        <ul class="dropdown-menu">
-	          <li>
-	            <div class="aw-logged-user">
-	              <img src="https://api.adorable.io/avatars/80/joaodascouves" 
-	                width="80" height="80" alt="João das Couves" class="aw-logged-user__picture" />
-	              <span class="aw-logged-user__name">João das Couves</span>
-	            </div>
-	          </li>
-	          <li role="separator" class="divider"></li>
-	          <li><a href="#">Meu perfil</a></li>
-	          <li><a href="#">Alterar senha</a></li>
-	          <li><a href="#">Pagamentos</a></li>
-	        </ul>
-	      </li>
-	      
-	      <li>
-	        <a href="#"><em class="fa  fa-sign-out"></em></a>
-	      </li> 
-	    </ul>
+	    </div>
 
 	  </div>
 	</nav>
@@ -93,40 +54,33 @@
 	    	<nav class="aw-menu  js-menu">
 	      		<ul class="aw-menu__list">
 	        		<li class="aw-menu__item">
-          			<a th:href="@{/produtos/novo}">
+          			<a th:href="@{/usuario/novo}">
           				<i class="fa  fa-fw  fa-plus-circle"></i>
-          				<span>Novo produto</span>
+          				<span>Novo Usuário</span>
           			</a>
 	        		</li>
 	        		
 	        		<li class="aw-menu__item">
-          			<a th:href="@{/produtos}">
+          			<a th:href="@{/aeronaves/novo}">
           				<i class="fa  fa-fw  fa-search"></i>
-          				<span>Consulta produto</span>
+          				<span>Cadastrar Aeronave</span>
           			</a>
 	        		</li>
 	        		
 	        		<li class="aw-menu__item">
-          			<a th:href="@{/403}">
-          				<i class="fa  fa-fw  fa-arrow-circle-o-right"></i>
-          				<span>403</span>
+          			<a th:href="@{/voos/novo}">
+          				<i class="fa  fa-fw  fa-search"></i>
+          				<span>Cadastrar Voo</span>
           			</a>
 	        		</li>
 	        		
 	        		<li class="aw-menu__item">
-          			<a th:href="@{/404}">
-          				<i class="fa  fa-fw  fa-arrow-circle-o-right"></i>
-          				<span>404</span>
+          			<a th:href="@{/voos/listaVoo}">
+          				<i class="fa  fa-fw  fa-search"></i>
+          				<span>Voos Disponiveis</span>
           			</a>
 	        		</li>
-	        		
-	        		<li class="aw-menu__item">
-          			<a th:href="@{/500}">
-          				<i class="fa  fa-fw  fa-arrow-circle-o-right"></i>
-          				<span>500</span>
-          			</a>
-	        		</li>
-	
+
 	      	</ul>
 	    	</nav>
 		</div>
@@ -136,7 +90,7 @@
 	
 	<footer class="aw-layout-footer  js-content">
 		<div class="container-fluid">
-			<span class="aw-footer-disclaimer">&copy; 2016 AlgaWorks. Todos os direitos reservados.</span>
+			<span class="aw-footer-disclaimer">&copy; 2016 UnipeJet. Todos os direitos reservados.</span>
 		</div>
 	</footer>
 </div>
